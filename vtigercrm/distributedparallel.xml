@@ -1,0 +1,14 @@
+
+<suite thread-count="2" parallel="tests" name="Suite">
+  <test thread-count="2" parallel="tests" name="orgTest">
+    <classes>
+      <class name="com.vtigercrm.orgTest.CreatOrgTest"/>
+    </classes>
+  </test> <!-- Test -->
+    <test thread-count="2" parallel="tests" name="contactTest">
+      <classes>
+      <class name="com.vtigercrm.contacttest.CreatContactTest"/>
+      
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

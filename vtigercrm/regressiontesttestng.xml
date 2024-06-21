@@ -1,0 +1,14 @@
+
+<suite name="Suite">
+	<groups>
+		<run>
+			<include name="regression test"/>
+		</run>
+	</groups>
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.vtigercrm.contacttest.CreatContactTest"/>
+      <class name="com.vtigercrm.orgTest.CreatOrgTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

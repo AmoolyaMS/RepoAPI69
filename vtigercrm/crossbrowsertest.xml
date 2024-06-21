@@ -1,0 +1,16 @@
+<suite thread-count="2" parallel="tests" name="Suite">
+  <test thread-count="2" parallel="tests" name="TestA">
+	  <parameter name="BROWSER" value="chrome"/>
+    <classes>
+      <class name="com.vtigercrm.contacttest.CreatContactTest"/>
+      <class name="com.vtigercrm.orgTest.CreatOrgTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test thread-count="2" parallel="tests" name="TestB">
+	  <parameter name="BROWSER" value="Edge"/>
+    <classes>
+      <class name="com.vtigercrm.contacttest.CreatContactTest"/>
+      <class name="com.vtigercrm.orgTest.CreatOrgTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

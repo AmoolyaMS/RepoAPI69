@@ -1,0 +1,15 @@
+
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.vtigercrm.contacttest.CreatContactTest"/>
+      <methods>
+		  <include name="creatcontactwithorgTest"/>
+	  </methods>
+      <class name="com.vtigercrm.orgTest.CreatOrgTest"/>
+      <methods>
+		  <include name="creatorgwithmandfieldTest"/>
+	  </methods>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

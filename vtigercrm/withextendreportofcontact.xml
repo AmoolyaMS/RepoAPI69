@@ -1,0 +1,14 @@
+
+<suite name="Suite">
+	<listeners>
+	<listener class-name="com.vtigercrm.generic.listnerutility.ListenerImplimentation"/>
+	</listeners>
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.vtigercrm.contacttest.CreatContactTest"/>
+      <methods>
+		  <include name="creatcontactTest"/>
+      </methods>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
