@@ -16,8 +16,9 @@ public class CreatingNewOrganizationPage {
 	@FindBy(id = "dtlview_Phone")
 	private WebElement orgphoneid ;
 	
-	
-	
+	public CreatingNewOrganizationPage(WebDriver driver) {
+		PageFactory.initElements(driver, this);
+	}
 	public WebElement getOrgphoneid() {
 		return orgphoneid;
 	}
@@ -25,11 +26,6 @@ public class CreatingNewOrganizationPage {
 	public WebElement getOrgnameid() {
 		return orgnameid;
 	}
-
-	public CreatingNewOrganizationPage(WebDriver driver) {
-		PageFactory.initElements(driver, this);
-	}
-	
 	public WebElement getIndustryid() {
 		return industryid;
 	}

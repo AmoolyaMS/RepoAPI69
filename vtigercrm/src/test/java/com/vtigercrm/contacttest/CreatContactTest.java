@@ -147,11 +147,11 @@ public class CreatContactTest extends BaseClass
 		//find org name textfield + image to get lookup table
 		driver.findElement(By.xpath("//input[@name='account_name']/following-sibling::img")).click();
 		//switch to child window
-		wlib.SwitcWindowsByUrl(driver, "module=Accounts");
+		wlib.SwitcWindowsByUrl(driver,"module=Accounts");
 		NewWindowOrgPage npom=new NewWindowOrgPage(driver);
 		npom.searchforcreatedorg(orgname);
 		driver.findElement(By.xpath("//a[text()='"+orgname+"']")).click(); 
-		wlib.SwitcWindowsByUrl(driver, "module=Contacts");
+		wlib.SwitcWindowsByUrl(driver,"module=Contacts");
 		cipom.getSavebtn().click();
 		//navigate to creating new contact page
 		UtilityClassObject.getTest().log(Status.INFO, "navigate to creating new contact page");

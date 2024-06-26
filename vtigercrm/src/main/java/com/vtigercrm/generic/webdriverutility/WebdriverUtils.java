@@ -11,7 +11,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class WebdriverUtils {
+import com.vtiger.baseutitlity.BaseClass;
+
+public class WebdriverUtils{
 
 	public void waitForPageToLoad(WebDriver driver) {
 
@@ -38,7 +40,7 @@ public class WebdriverUtils {
 			}	
 		}	
 	}
-	public void getMouseHover(WebDriver driver,WebElement ele) {
+	public void getMouseHover(WebDriver driver, WebElement ele) {
 
 		Actions a=new Actions(driver);
 		a.moveToElement(ele).perform();
@@ -63,7 +65,7 @@ public class WebdriverUtils {
 		wait.until(ExpectedConditions.alertIsPresent());
 		driver.switchTo().alert().dismiss();
 	}
-	public void switchFrame(WebDriver driver, WebElement ele) {
+	public void switchFrame(WebDriver driver,WebElement ele) {
 
 		driver.switchTo().frame(ele);
 	}
@@ -71,5 +73,5 @@ public class WebdriverUtils {
 		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.visibilityOf(ele));
 	}
-	
+
 }

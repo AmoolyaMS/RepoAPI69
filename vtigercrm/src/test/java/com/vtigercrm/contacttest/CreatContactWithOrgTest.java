@@ -69,11 +69,11 @@ public class CreatContactWithOrgTest extends BaseClass {
 		//cipom.creatcontact(driver, lastname, "module=Accounts" );
 		cipom.getLastnametxtfield().sendKeys(lastname);
 		driver.findElement(By.xpath("//input[@name='account_name']/following-sibling::img")).click();
-		wlib.SwitcWindowsByUrl(driver, "module=Accounts");
+		wlib.SwitcWindowsByUrl(driver,"module=Accounts");
 		NewWindowOrgPage npom=new NewWindowOrgPage(driver);
 		npom.searchforcreatedorg(orgname);
 		driver.findElement(By.xpath("//a[text()='"+orgname+"']")).click(); 
-		wlib.SwitcWindowsByUrl(driver, "module=Contacts");
+		wlib.SwitcWindowsByUrl(driver,"module=Contacts");
 		cipom.getSavebtn().click();
 		CreatingNewContactPage cnpom=new CreatingNewContactPage(driver);
 		String acontactid =cnpom.getLastnameid().getText();

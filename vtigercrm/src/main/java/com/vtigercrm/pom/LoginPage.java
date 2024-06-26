@@ -1,5 +1,7 @@
 package com.vtigercrm.pom;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.mysql.jdbc.Driver;
 
 public class LoginPage {
+	WebDriver driver;
 	@FindBy(name = "user_name")
 	private WebElement usernametxbox;
 	@FindBy(name = "user_password")
@@ -21,6 +24,7 @@ public class LoginPage {
 	 
 	public LoginPage(WebDriver driver) 
 	{
+		this.driver=driver;
 		PageFactory.initElements(driver, this);	
 	}
 
@@ -30,14 +34,15 @@ public class LoginPage {
 		pwdtxbox.sendKeys(pwd);
 		loginbtn.click();
 	}
-	public void login( WebDriver driver, String url, String un, String pwd) throws InterruptedException {
+	public void login(String url, String un, String pwd) throws InterruptedException {
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.get(url);
-		Thread.sleep(2000);	
+		driver.manage().window().maximize();
 		usernametxbox.sendKeys(un);
 		pwdtxbox.sendKeys(pwd);
 		loginbtn.click();
 	}
-	public void closeBrowser(WebDriver driver) {
+	public void closeBrowser() {
 		driver.quit();
 	}
 	

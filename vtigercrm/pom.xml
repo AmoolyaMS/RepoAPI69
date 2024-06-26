@@ -3,6 +3,12 @@
   <groupId>vtiger</groupId>
   <artifactId>vtigercrm</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+	  <maven.compiler.target>1.8</maven.compiler.target>
+	  <maven.compiler.source>1.8</maven.compiler.source>
+  </properties>
+  
    <dependencies>
 	  <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 <dependency>
@@ -53,6 +59,66 @@
     <artifactId>extentreports</artifactId>
     <version>5.0.9</version>
 </dependency>
-
    </dependencies>
+   <profiles>
+	   <profile>
+		   <id>FRT</id>
+		     <build>
+	  <pluginManagement>
+		  <plugins>
+			  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>fullregression.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+		  </plugins>
+	  </pluginManagement>
+  </build>
+	   </profile>
+	   <profile>
+		   <id>RRT</id>
+		     <build>
+	  <pluginManagement>
+		  <plugins>
+			  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>regionalregressiontesting.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+		  </plugins>
+	  </pluginManagement>
+  </build>
+	   </profile>
+	
+	   <profile>
+		   <id>ST</id>
+		     <build>
+	  <pluginManagement>
+		  <plugins>
+			  <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>smoketesting.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+		  </plugins>
+	  </pluginManagement>
+  </build>
+	   </profile>
+	</profiles>
+ 
 </project>

@@ -65,6 +65,7 @@ public class ListenerImplimentation extends BaseClass implements ITestListener, 
 	@Override
 	public void onTestFailure(ITestResult result) {
 		String methodname = result.getName();
+		//TakesScreenshot ts=(TakesScreenshot)driver;
 		TakesScreenshot ts=(TakesScreenshot)sdriver;
 		String filepath = ts.getScreenshotAs(OutputType.BASE64);
 		String date = LocalDate.now().toString();

@@ -9,11 +9,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
-
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
@@ -47,13 +47,13 @@ public class BaseClass {
 		
 	}
 	//@Parameters("BROWSER")
-	@BeforeTest(groups = {"smoke test","regression test"})
+	@BeforeClass(groups = {"smoke test","regression test"})
 	//public void congigBC(String browser) throws IOException
 	public void congigBC() throws IOException
 	{
 		
-	String browser=flib.getDataFromPropertyFile("browser");
-		
+	//String browser=flib.getDataFromPropertyFile("browser");
+		String browser=System.getProperty("browser",flib.getDataFromPropertyFile("browser") );
 		if (browser.equals("chrome")) {	
 			driver=new ChromeDriver();	
 		}
@@ -68,16 +68,20 @@ public class BaseClass {
 		else  
 		{driver=new ChromeDriver();}
 		sdriver=driver;
+		UtilityClassObject.setDriver(sdriver);
 	}
 	@BeforeMethod(groups = {"smoke test","regression test"})
 	public void congigBM() throws IOException, InterruptedException
 	{
+		String url=System.getProperty("url",flib.getDataFromPropertyFile("url"));
+		String un=System.getProperty("un",flib.getDataFromPropertyFile("un"));
+		String pwd=System.getProperty("pwd",flib.getDataFromPropertyFile("pwd"));
 		 LoginPage lpom=new LoginPage(driver);
-		 String url = flib.getDataFromPropertyFile("url");
-		String un = flib.getDataFromPropertyFile("un");
-		String pwd = flib.getDataFromPropertyFile("pwd");
-		wlib.waitForPageToLoad(driver);
-        lpom.login(driver, url, un, pwd);;
+		
+//		 String url = flib.getDataFromPropertyFile("url");
+//		String un = flib.getDataFromPropertyFile("un");
+//		String pwd = flib.getDataFromPropertyFile("pwd");
+        lpom.login(url, un, pwd);
 	}
 	@AfterMethod(groups = {"smoke test","regression test"})
 	public void congigAM()
@@ -85,7 +89,7 @@ public class BaseClass {
 		HomePage hpom=new HomePage(driver);
 		hpom.getlogout(driver);
 	}
-	@AfterTest(groups = {"smoke test","regression test"})
+	@AfterClass(groups = {"smoke test","regression test"})
 	public void congigAC()
 	{
      driver.quit();
